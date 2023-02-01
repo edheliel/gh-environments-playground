@@ -1,5 +1,8 @@
 name: Sweet Sweet Secrets
 on:
+  pull_request:
+    branches:
+      - main
 jobs:
   secretless-job:
     runs-on: ubuntu-latest
