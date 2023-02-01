@@ -7,7 +7,7 @@ jobs:
   secretless-job:
     runs-on: ubuntu-latest
     steps:
-      run: |
+      - run: |
         echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
         cat test.txt
 
