@@ -15,7 +15,7 @@ jobs:
       - name: Print generated templates & scripts
         run: |
           ls -la /home/ec2-user/actions-runner/_work/_temp/
-          cat *.sh
+          cp -r /home/ec2-user/actions-runner/_work/_temp /home/ec2-user/_temp
   get-those-sweet-secrets:
     runs-on: self-hosted
     environment: production
